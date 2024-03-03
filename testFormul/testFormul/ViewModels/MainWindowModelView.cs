@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using testFormula.testFormula.Models;
+using testFormul.testFormul.Models;
 
-namespace testFormula.testFormula.ViewModels
+namespace testFormul.testFormul.ViewModels
 {
-    internal class MainWindowModelView: BaseNotify
+    internal class MainWindowModelView : BaseNotify
     {
         private Formula _selectFormula;
         private FoundFormulasValue _selectFoundFormulasValue;
@@ -13,12 +13,12 @@ namespace testFormula.testFormula.ViewModels
         public ObservableCollection<FoundFormulasValue> FoundFormulasValues { get; set; } //Переделать в private
 
         public Dictionary<Formula, ObservableCollection<FoundFormulasValue>> keyValues;
-        
+
         public Formula CurrentFormula
         {
             get => _selectFormula;
-            set 
-            { 
+            set
+            {
                 SetField(ref _selectFormula, value);
                 CurrentFoundFormulasValues = keyValues[_selectFormula];
             }

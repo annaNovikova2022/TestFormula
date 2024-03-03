@@ -1,7 +1,10 @@
 ﻿using System.Windows.Input;
 
-namespace testFormula.testFormula.ViewModels
+namespace testFormul.testFormul.ViewModels
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class BaseCommand : ICommand
     {
         private readonly Predicate<object?> _canExecute;
