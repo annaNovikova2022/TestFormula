@@ -8,32 +8,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-        <Window.DataContext>
-            <vm:MainWindowModelView/>
-        </Window.DataContext>
+    <Window.DataContext>
+        <vm:MainWindowModelView/>
+    </Window.DataContext>
 
-        <Grid ClipToBounds="True" 
+    <Grid ClipToBounds="True" 
           SnapsToDevicePixels="True">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
 
-            <ScrollViewer VerticalAlignment="Top" 
+        <ScrollViewer VerticalAlignment="Top" 
                       Grid.Column="0" 
                       Grid.Row="0" 
                       Grid.ColumnSpan="3">
-                <StackPanel >
-                    <DataGrid ItemsSource="{Binding Formuls}"
+            <StackPanel >
+                <DataGrid ItemsSource="{Binding Formuls}"
                     SelectedItem="{Binding SelectFormula}"
                     AutoGenerateColumns="False" 
                           IsReadOnly="True" 
@@ -41,105 +41,104 @@
                           VerticalAlignment="Center" 
                           HorizontalAlignment="Center" 
                           RenderTransformOrigin="0,0">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название формулы"
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название формулы"
                                             Width="1*"
                                             Binding="{Binding Name}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </ScrollViewer>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
 
-            <StackPanel Grid.Column="0" 
+        <StackPanel Grid.Column="0" 
                     Grid.Row="1" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top" 
                     DataContext="{Binding SelectFormula}" >
-                <StackPanel>
-                    <Label x:Name="label" 
+            <StackPanel>
+                <Label x:Name="label" 
                        Content="Коэффициент A" 
                        HorizontalAlignment="Left"  
                        Grid.Row="1" 
                        VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" 
+                <TextBox HorizontalAlignment="Left" 
                          TextWrapping="Wrap" 
                          Text="{Binding A}" 
                          MinWidth="{Binding ActualWidth, ElementName=label, Mode=OneWay}"/>
-                </StackPanel>
             </StackPanel>
+        </StackPanel>
 
-            <StackPanel Grid.Column="1" 
+        <StackPanel Grid.Column="1" 
                     Grid.Row="1" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top" 
                     DataContext="{Binding SelectFormula}" >
-                <StackPanel>
-                    <Label Content="Коэффициент B" 
+            <StackPanel>
+                <Label x:Name="label2" Content="Коэффициент B" 
                        HorizontalAlignment="Left"
-                       Grid.Row="1" VerticalAlignment="Top" 
-                       Height="26" 
-                       Width="67"/>
-                    <TextBox HorizontalAlignment="Left" 
+                       Grid.Row="1" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" 
                          TextWrapping="Wrap" 
                          VerticalAlignment="Top" 
-                         Width="90" 
-                         Text="{Binding B}"/>
-                </StackPanel>
+                         Text="{Binding B}" 
+                         AutomationProperties.AutomationId="BTextId"
+                         AcceptsReturn="True" MinWidth="{Binding ActualWidth, ElementName=label2, Mode=OneWay}"/>
             </StackPanel>
+        </StackPanel>
 
-            <StackPanel Grid.Column="2" 
+        <StackPanel Grid.Column="2" 
                     Grid.Row="1" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
                     DataContext="{Binding SelectFormula}">
-                <StackPanel>
-                    <Label x:Name="label1" 
+            <StackPanel>
+                <Label x:Name="label1" 
                        Content="Коэффициент C" 
                        HorizontalAlignment="Left"  
                        Grid.Row="1" VerticalAlignment="Top"/>
-                    <ComboBox HorizontalAlignment="Left"  
+                <ComboBox HorizontalAlignment="Left"  
                           Grid.Row="3" 
                           VerticalAlignment="Top" 
                           Width="120" 
                           ItemsSource="{Binding ListC}" 
                           SelectedItem="{Binding CurrentC}" 
                           MinWidth="{Binding ActualWidth, ElementName=label1, Mode=OneWay}"/>
-                </StackPanel>
             </StackPanel>
+        </StackPanel>
 
-            <ScrollViewer VerticalAlignment="Top" 
+        <ScrollViewer VerticalAlignment="Top" 
                       Grid.Column="3" 
                       Grid.Row="0" 
                       Padding="1,0,0,0" 
                       BorderBrush="Black" Grid.RowSpan="2" >
-                <StackPanel>
-                    <DataGrid ItemsSource="{Binding SelectFoundFormulasValues}"
+            <StackPanel>
+                <DataGrid ItemsSource="{Binding SelectFoundFormulasValues}"
                                   SelectedItem="{Binding SelectFoundFormulasValue}"
                                   AutoGenerateColumns="False" 
                                   Padding="10,10,10,10" 
                                   Background="#FF8AC1B8">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="F(x,y)"
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="F(x,y)"
                                                     IsReadOnly="True"
                                                     Width="2*"
                                                     Binding="{Binding F}" />
-                            <DataGridTextColumn Header="x"
+                        <DataGridTextColumn Header="x"
                                                     Width="1*"
                                                     Binding="{Binding X}" />
-                            <DataGridTextColumn Header="y"
+                        <DataGridTextColumn Header="y"
                                                     Width="1*"
                                                     Binding="{Binding Y}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </ScrollViewer>
-
-            <StackPanel Grid.Column="3" Grid.Row="2" Background="#FF8AC1B8" >
-                <Button Content="Add"
-                    Command="{Binding AddCommand}" />
-                <Button Content="Del"
-                    Command="{Binding DelCommand}" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
-        </Grid>
-    </Window>
+        </ScrollViewer>
+
+        <StackPanel Grid.Column="3" Grid.Row="2" Background="#FF8AC1B8" >
+            <Button Content="Add"
+                    Command="{Binding AddCommand}" />
+            <Button Content="Del"
+                    Command="{Binding DelCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>
 

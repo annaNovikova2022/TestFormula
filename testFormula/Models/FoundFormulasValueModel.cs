@@ -3,17 +3,17 @@
     /// <summary>
     /// Данный класс позволяет находить и изменять значение функции
     /// </summary>
-    internal class FoundFormulasValue : BaseNotify
+    internal class FoundFormulasValueModel : BaseNotify
     {
         private float _x;
         private float _y;
         private double _f;
-        private Formula _formula;
+        private FormulaModel _formula;
 
         /// <summary>
         /// Для чтения коэфициентов текущей формулы
         /// </summary>
-        public Formula CurrentFormula => _formula;
+        public FormulaModel CurrentFormula => _formula;
         /// <summary>
         /// Для ввода и чтения значения Х
         /// </summary>
@@ -54,7 +54,7 @@
         /// Конструктор класса, где добавляется расчет F в событие объекта формулы и происходит сам расчет F 
         /// </summary>
         /// <param name="formula">Объект, содержащий в себе коэффициенты для формулы</param>
-        public FoundFormulasValue(Formula formula)
+        public FoundFormulasValueModel(FormulaModel formula)
         {
             _formula = formula;
             _formula.Changes += CalculationFormula;

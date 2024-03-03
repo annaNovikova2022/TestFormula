@@ -8,25 +8,25 @@ namespace testFormul.testFormul.ViewModels
     /// </summary>
     internal class MainWindowModelView : BaseNotify
     {
-        private Formula _selectFormula;
-        private FoundFormulasValue _selectFoundFormulasValue;
-        private ObservableCollection<FoundFormulasValue> _selectFoundFormulasValues;
+        private FormulaModel _selectFormula;
+        private FoundFormulasValueModel _selectFoundFormulasValue;
+        private ObservableCollection<FoundFormulasValueModel> _selectFoundFormulasValues;
 
-        private List<Formula> _formuls;
-        private ObservableCollection<FoundFormulasValue> _foundFormulasValues; 
-        private Dictionary<Formula, ObservableCollection<FoundFormulasValue>> _foundValueForFormuls;
+        private List<FormulaModel> _formuls;
+        private ObservableCollection<FoundFormulasValueModel> _foundFormulasValues; 
+        private Dictionary<FormulaModel, ObservableCollection<FoundFormulasValueModel>> _foundValueForFormuls;
         
         /// <summary>
         /// Чтение данных из листа формул, коллекции найденных значений и словаря формул и найденных значений 
         /// </summary>
-        public List<Formula> Formuls => _formuls;
-        public ObservableCollection<FoundFormulasValue> FoundFormulasValues => _foundFormulasValues;
-        public Dictionary<Formula, ObservableCollection<FoundFormulasValue>> FoundValueForFormuls => _foundValueForFormuls;
+        public List<FormulaModel> Formuls => _formuls;
+        public ObservableCollection<FoundFormulasValueModel> FoundFormulasValues => _foundFormulasValues;
+        public Dictionary<FormulaModel, ObservableCollection<FoundFormulasValueModel>> FoundValueForFormuls => _foundValueForFormuls;
 
         /// <summary>
         /// Чтение и запись текущей выбранной формулы, а так же изменение найденных значений
         /// </summary>
-        public Formula SelectFormula
+        public FormulaModel SelectFormula
         {
             get => _selectFormula;
             set
@@ -38,7 +38,7 @@ namespace testFormul.testFormul.ViewModels
         /// <summary>
         /// Чтение и запись текущих найденных значений
         /// </summary>
-        public ObservableCollection<FoundFormulasValue> SelectFoundFormulasValues
+        public ObservableCollection<FoundFormulasValueModel> SelectFoundFormulasValues
         {
             get => _selectFoundFormulasValues;
             set
@@ -50,7 +50,7 @@ namespace testFormul.testFormul.ViewModels
         /// <summary>
         /// Чтение и запись текущего выбранного найденного значения 
         /// </summary>
-        public FoundFormulasValue SelectFoundFormulasValue
+        public FoundFormulasValueModel SelectFoundFormulasValue
         {
             get => _selectFoundFormulasValue;
             set
@@ -71,7 +71,7 @@ namespace testFormul.testFormul.ViewModels
         /// </summary>
         public MainWindowModelView()
         {
-            _formuls = new List<Formula>
+            _formuls = new List<FormulaModel>
             {
                 new(1, 0, new List<int> { 1, 2, 3, 4, 5 }, "Линейная"),
                 new(2, 1, new List<int> { 10, 20, 30, 40, 50 }, "Квадратичная"),
@@ -81,13 +81,13 @@ namespace testFormul.testFormul.ViewModels
 
             };
 
-            _foundValueForFormuls = new Dictionary<Formula, ObservableCollection<FoundFormulasValue>>()
+            _foundValueForFormuls = new Dictionary<FormulaModel, ObservableCollection<FoundFormulasValueModel>>()
             {
-                {_formuls[0], new ObservableCollection<FoundFormulasValue> {new FoundFormulasValue(_formuls[0]), new FoundFormulasValue(_formuls[0])}},
-                {_formuls[1], new ObservableCollection<FoundFormulasValue> {new FoundFormulasValue(_formuls[1])}},
-                {_formuls[2], new ObservableCollection<FoundFormulasValue> {new FoundFormulasValue(_formuls[2])}},
-                {_formuls[3], new ObservableCollection<FoundFormulasValue> {new FoundFormulasValue(_formuls[3])}},
-                {_formuls[4], new ObservableCollection<FoundFormulasValue> {new FoundFormulasValue(_formuls[4])}},
+                {_formuls[0], new ObservableCollection<FoundFormulasValueModel> {new FoundFormulasValueModel(_formuls[0]), new FoundFormulasValueModel(_formuls[0])}},
+                {_formuls[1], new ObservableCollection<FoundFormulasValueModel> {new FoundFormulasValueModel(_formuls[1])}},
+                {_formuls[2], new ObservableCollection<FoundFormulasValueModel> {new FoundFormulasValueModel(_formuls[2])}},
+                {_formuls[3], new ObservableCollection<FoundFormulasValueModel> {new FoundFormulasValueModel(_formuls[3])}},
+                {_formuls[4], new ObservableCollection<FoundFormulasValueModel> {new FoundFormulasValueModel(_formuls[4])}},
             };
 
             SelectFormula = Formuls[0];
@@ -101,7 +101,7 @@ namespace testFormul.testFormul.ViewModels
         /// </summary>
         private void Add()
         {
-            _selectFoundFormulasValues.Add(new FoundFormulasValue(_selectFormula));
+            _selectFoundFormulasValues.Add(new FoundFormulasValueModel(_selectFormula));
         }
 
         /// <summary>

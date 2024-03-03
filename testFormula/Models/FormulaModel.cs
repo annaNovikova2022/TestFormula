@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс, содержащий в себе коэффициенты для определенной формулы
     /// </summary>
-    internal class Formula : BaseNotify
+    internal class FormulaModel : BaseNotify
     {
         private string _name;
         private float _degreeX;
@@ -70,7 +70,7 @@
         /// <param name="degreeY">Степень У</param>
         /// <param name="c">Список доступных значений С</param>
         /// <param name="name">Наименование формулы</param>
-        public Formula(float degreeX, float degreeY, List<int> c, string name)
+        public FormulaModel(float degreeX, float degreeY, List<int> c, string name, float a = 1, float b = 1)
         {
             _degreeX = degreeX;
             _degreeY = degreeY;
@@ -78,8 +78,8 @@
             _c = c;
 
             _currentC = c[0];
-            _a = 1;
-            _b = 1;
+            _a = a;
+            _b = b;
         }
     }
 }
