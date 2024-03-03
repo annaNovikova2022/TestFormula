@@ -92,8 +92,8 @@ namespace testFormul.testFormul.ViewModels
 
             SelectFormula = Formuls[0];
 
-            AddCommand = new BaseCommand(_ => true, _ => Add());
-            DelCommand = new BaseCommand(_ => _selectFoundFormulasValues.Count > 1, _ => Del());
+            AddCommand = new BaseCommand((_) => true, (_) => Add());
+            DelCommand = new BaseCommand((_) => _selectFoundFormulasValues.Count > 1, (_) => Del());
         }
 
         /// <summary>
