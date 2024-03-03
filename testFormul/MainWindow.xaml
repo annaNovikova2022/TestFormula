@@ -1,0 +1,93 @@
+﻿<Window x:Class="testFormul.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:testFormul"
+        xmlns:vm="clr-namespace:testFormula.testFormula.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <vm:MainWindowModelView/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <!-- Note that width and height are not set to make it size to the grid cell -->
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <DataGrid ItemsSource="{Binding Formuls}"
+                    SelectedItem="{Binding CurrentFormula}"
+                    AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название формулы"
+                                            Width="1*"
+                                            Binding="{Binding Name}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding CurrentFormula}">
+            <StackPanel>
+                <Label Content="A" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Height="26" Width="67"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding A}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding CurrentFormula}">
+            <StackPanel>
+                <Label Content="B" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Height="26" Width="67"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding B}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding CurrentFormula}">
+            <StackPanel>
+                <Label Content="C" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Height="26" Width="67"/>
+                <ComboBox HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ListC}" SelectedItem="{Binding CurrentC}"/>
+            </StackPanel>
+        </StackPanel>
+ 
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <DataGrid ItemsSource="{Binding CurrentFoundFormulasValues}"
+                      SelectedItem="{Binding CurrentFoundFormulasValue}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="F(x,y)"
+                                        IsReadOnly="True"
+                                        Width="2*"
+                                        Binding="{Binding F}" />
+                    <DataGridTextColumn Header="x"
+                                        Width="1*"
+                                        Binding="{Binding X}" />
+                    <DataGridTextColumn Header="y"
+                                        Width="1*"
+                                        Binding="{Binding Y}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button Content="Add"
+                    Command="{Binding AddCommand}" />
+            <Button Content="Del"
+                    Command="{Binding DelCommand}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+            DataContext="{Binding CurrentFormula}"
+            Grid.Column="1" Grid.Row="2">
+                        <TextBlock Text="{Binding Name}"
+               Margin="5" />
+        </StackPanel>
+        
+    </Grid>
+</Window>
