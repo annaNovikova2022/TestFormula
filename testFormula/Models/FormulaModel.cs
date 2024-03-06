@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс, содержащий в себе коэффициенты для определенной формулы
     /// </summary>
-    internal class FormulaModel : BaseNotify
+    public class FormulaModel : BaseNotify
     {
         const int numOfListC = 5;
 
@@ -68,10 +68,10 @@
         /// <summary>
         /// Конструктор, задающий значения коэффициентов
         /// </summary>
-        /// <param name="degreeX">Степень Х</param>
-        /// <param name="degreeY">Степень У</param>
-        /// <param name="c">Список доступных значений С</param>
+        /// <param name="degree">Степень формулы и степень числа 10 для листа С</param>
         /// <param name="name">Наименование формулы</param>
+        /// <param name="a">Коэффициент А</param>
+        /// <param name="b">Коэффициент В</param>
         public FormulaModel(int degree, string name, float a = 1, float b = 1)
         {
             _degreeX = degree;

@@ -5,7 +5,7 @@ namespace testFormul.testFormul.ViewModels
     /// <summary>
     /// Класс для работы с интерфейсом ICommand
     /// </summary>
-    internal class BaseCommand : ICommand
+    public class BaseCommand : ICommand
     {
         private readonly Predicate<object?> _canExecute;
         private readonly Action<object?> _execute;

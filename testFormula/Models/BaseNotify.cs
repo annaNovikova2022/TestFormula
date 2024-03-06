@@ -6,7 +6,7 @@ namespace testFormul.testFormul.Models
     /// <summary>
     /// Класс для наследования функций интерфейса INotifyPropertyChanged
     /// </summary>
-    internal class BaseNotify : INotifyPropertyChanged
+    public class BaseNotify : INotifyPropertyChanged
     {
         /// <summary>
         /// Событие для изменяющихся значений

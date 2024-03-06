@@ -3,7 +3,7 @@
     /// <summary>
     /// Данный класс позволяет находить и изменять значение функции
     /// </summary>
-    internal class FoundFormulasValueModel : BaseNotify
+    public class FoundFormulasValueModel : BaseNotify
     {
         private float _x;
         private float _y;
@@ -67,7 +67,7 @@
         /// <summary>
         /// Расчет значения функции
         /// </summary>
-        public void CalculationFormula()
+        private void CalculationFormula()
         {
             F = _formula.A * Math.Pow(_x, _formula.DegreeX) + _formula.B * Math.Pow(_y, _formula.DegreeY) + _formula.CurrentC;
         }

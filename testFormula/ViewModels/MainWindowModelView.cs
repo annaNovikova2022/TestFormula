@@ -1,6 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
 using testFormul.testFormul.Models;
 
 namespace testFormul.testFormul.ViewModels
@@ -8,7 +6,7 @@ namespace testFormul.testFormul.ViewModels
     /// <summary>
     /// Класс для передачи данных между окном и моделями
     /// </summary>
-    internal class MainWindowModelView : BaseNotify
+    public class MainWindowModelView : BaseNotify
     {
         private FormulaModel _selectFormula;
         private FoundFormulasValueModel _selectFoundFormulasValue;
