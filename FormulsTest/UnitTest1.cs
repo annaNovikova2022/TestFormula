@@ -5,11 +5,9 @@ namespace FormulsTest
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
+        /// <summary>
+        /// ѕроверка вычислени€ линейной формулы
+        /// </summary>
         [Test]
         public void TestLinearFormula()
         {
@@ -29,6 +27,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ квадратичной формулы
+        /// </summary>
         [Test]
         public void TestQuadraticFormula()
         {
@@ -50,6 +51,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ кубической формулы
+        /// </summary>
         [Test]
         public void TestCubicFormula()
         {
@@ -72,6 +76,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ формулы 4-й степени
+        /// </summary>
         [Test]
         public void TestFourDegreeFormula()
         {
@@ -95,6 +102,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ формулы 5-й степени
+        /// </summary>
         [Test]
         public void TestFiveDegreeFormula()
         {
@@ -111,6 +121,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ формулы с отрицательными значени€ми
+        /// </summary>
         [Test]
         public void TestNegativeNumbersFormula()
         {
@@ -134,6 +147,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ формулы с нулевыми значени€ми
+        /// </summary>
         [Test]
         public void TestZeroFormula()
         {
@@ -157,6 +173,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка вычислени€ формулы с нецелыми значени€ми
+        /// </summary>
         [Test]
         public void TestNonIntegersFormula()
         {
@@ -179,6 +198,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка добавлени€ нового найденного значени€ в коллекцию найденных значений
+        /// </summary>
         [Test]
         public void TestAddValues()
         {
@@ -198,6 +220,9 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка удалени€ одного найденного значени€ из коллекции найденных значений
+        /// </summary>
         [Test]
         public void TestDeleteValues()
         {
@@ -217,6 +242,10 @@ namespace FormulsTest
             };
         }
 
+        /// <summary>
+        /// ѕроверка удалени€ всех найденных значений из коллекции найденных значений
+        /// ƒолжно остатьс€ 1 значение
+        /// </summary>
         [Test]
         public void TestDeleteAllValues()
         {
