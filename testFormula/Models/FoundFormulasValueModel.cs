@@ -46,7 +46,7 @@
             get => _f;
             set
             {
-                SetField(ref _f, value);
+                _f = value;
                 OnPropertyChanged(nameof(F));
             }
         }

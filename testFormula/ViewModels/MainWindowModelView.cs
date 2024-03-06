@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
 using testFormul.testFormul.Models;
 
 namespace testFormul.testFormul.ViewModels
@@ -73,11 +75,11 @@ namespace testFormul.testFormul.ViewModels
         {
             _formuls = new List<FormulaModel>
             {
-                new(1, 0, new List<int> { 1, 2, 3, 4, 5 }, "Линейная"),
-                new(2, 1, new List<int> { 10, 20, 30, 40, 50 }, "Квадратичная"),
-                new(3, 2, new List<int> { 100, 200, 300, 400, 500 }, "Кубическая"),
-                new(4, 3, new List<int> { 1000, 2000, 3000, 4000, 5000 }, "4-й степени"),
-                new(5, 4, new List<int> { 10000, 20000, 30000, 40000, 50000 }, "5-й степени"),
+                new(1, "Линейная"),
+                new(2, "Квадратичная"),
+                new(3, "Кубическая"),
+                new(4, "4-й степени"),
+                new(5, "5-й степени"),
 
             };
 
@@ -110,7 +112,6 @@ namespace testFormul.testFormul.ViewModels
         private void Del()
         {
             _selectFoundFormulasValues.Remove(SelectFoundFormulasValue);
-        }
-
+        }     
     }
 }

@@ -5,9 +5,11 @@
     /// </summary>
     internal class FormulaModel : BaseNotify
     {
+        const int numOfListC = 5;
+
         private string _name;
-        private float _degreeX;
-        private float _degreeY;
+        private int _degreeX;
+        private int _degreeY;
         private float _a;
         private float _b;
         private int? _currentC;
@@ -21,8 +23,8 @@
         /// Наименование формулы, степени Х и У, а так же список всех доступных значений С
         /// </summary>
         public string Name => _name;
-        public float DegreeX => _degreeX;
-        public float DegreeY => _degreeY;
+        public int DegreeX => _degreeX;
+        public int DegreeY => _degreeY;
         public List<int> ListC => _c;
 
         /// <summary>
@@ -70,16 +72,20 @@
         /// <param name="degreeY">Степень У</param>
         /// <param name="c">Список доступных значений С</param>
         /// <param name="name">Наименование формулы</param>
-        public FormulaModel(float degreeX, float degreeY, List<int> c, string name, float a = 1, float b = 1)
+        public FormulaModel(int degree, string name, float a = 1, float b = 1)
         {
-            _degreeX = degreeX;
-            _degreeY = degreeY;
+            _degreeX = degree;
+            _degreeY = degree-1;
             _name = name;
-            _c = c;
-
-            _currentC = c[0];
             _a = a;
             _b = b;
+
+            _c = new List<int>();
+            for (int i = 0; i < numOfListC; i++)
+            {
+                _c.Add((int)((i+1)*Math.Pow(10,degree-1)));
+            }
+            _currentC = _c[0];          
         }
     }
 }

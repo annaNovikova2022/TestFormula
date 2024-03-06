@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:testFormula"
         xmlns:vm="clr-namespace:testFormul.testFormul.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MinWidth="752" MinHeight="390">
 
     <Window.DataContext>
         <vm:MainWindowModelView/>
     </Window.DataContext>
 
     <Grid ClipToBounds="True" 
-          SnapsToDevicePixels="True">
+          SnapsToDevicePixels="True" MinWidth="752" MinHeight="390">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
