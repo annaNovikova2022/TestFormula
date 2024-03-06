@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:testFormula"
         xmlns:vm="clr-namespace:testFormul.testFormul.ViewModels"
+        xmlns:myElements="clr-namespace:testFormul.myElements"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinWidth="752" MinHeight="390">
+        Title="MainWindow" Height="450" Width="800"
+        MinWidth="752" MinHeight="390">
 
     <Window.DataContext>
         <vm:MainWindowModelView/>
     </Window.DataContext>
 
     <Grid ClipToBounds="True" 
-          SnapsToDevicePixels="True" MinWidth="752" MinHeight="390">
+          SnapsToDevicePixels="True">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -61,7 +63,7 @@
                        HorizontalAlignment="Left"  
                        Grid.Row="1" 
                        VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" 
+                <myElements:NumbersTextBox HorizontalAlignment="Left" 
                          TextWrapping="Wrap" 
                          Text="{Binding A}" 
                          MinWidth="{Binding ActualWidth, ElementName=label, Mode=OneWay}"/>
@@ -77,12 +79,13 @@
                 <Label x:Name="label2" Content="Коэффициент B" 
                        HorizontalAlignment="Left"
                        Grid.Row="1" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" 
+                <myElements:NumbersTextBox HorizontalAlignment="Left" 
                          TextWrapping="Wrap" 
                          VerticalAlignment="Top" 
                          Text="{Binding B}" 
                          AutomationProperties.AutomationId="BTextId"
-                         AcceptsReturn="True" MinWidth="{Binding ActualWidth, ElementName=label2, Mode=OneWay}"/>
+                         AcceptsReturn="True" 
+                         MinWidth="{Binding ActualWidth, ElementName=label2, Mode=OneWay}"/>
             </StackPanel>
         </StackPanel>
 
@@ -122,10 +125,10 @@
                                                     IsReadOnly="True"
                                                     Width="2*"
                                                     Binding="{Binding F}" />
-                        <DataGridTextColumn Header="x"
+                        <myElements:NumbersDataGridTextColumn Header="x"
                                                     Width="1*"
                                                     Binding="{Binding X}" />
-                        <DataGridTextColumn Header="y"
+                        <myElements:NumbersDataGridTextColumn Header="y"
                                                     Width="1*"
                                                     Binding="{Binding Y}" />
                     </DataGrid.Columns>
